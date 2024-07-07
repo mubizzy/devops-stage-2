@@ -7,9 +7,9 @@ services:
       dockerfile: Dockerfile
     container_name: frontend
     environment:
-      - VITE_API_URL=http://172.31.32.163:8000
+      - VITE_API_URL=http://18.234.134.125:8000
     ports:
-      - "5174:80"
+      - "5173:80"
     networks:
       - app-network
 
@@ -19,11 +19,11 @@ services:
       dockerfile: Dockerfile
     container_name: backend
     environment:
-      - DOMAIN=172.31.32.163
+      - DOMAIN=18.234.134.125
       - ENVIRONMENT=production
       - PROJECT_NAME="Full Stack FastAPI Project"
       - STACK_NAME=full-stack-fastapi-project
-      - BACKEND_CORS_ORIGINS=http://172.31.32.163,http://172.31.32.163:5174
+      - BACKEND_CORS_ORIGINS=http://18.234.134.125,http://18.234.134.125:5173
       - SECRET_KEY=changethis123
       - FIRST_SUPERUSER=devops@hng.tech
       - FIRST_SUPERUSER_PASSWORD=devops#HNG11
