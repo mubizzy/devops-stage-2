@@ -42,3 +42,52 @@ Add Poetry to your PATH (if not automatically added):
 
 5. **Update configuration**:
    Ensure you update the necessary configurations in the `.env` file, particularly the database configuration.
+
+   # Full Stack Web Application Deployment
+This project demonstrates the deployment of a full stack web application using React for the frontend, FastAPI for the backend, and PostgreSQL as the database. The application is containerized using Docker and deployed on an AWS EC2 instance.
+
+## Prerequisites
+
+- Node.js and npm installed
+- Python 3.9 installed
+- PostgreSQL installed
+- Docker and Docker Compose installed
+
+## installation 
+### Manual Setup
+
+#### Backend
+
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/yourusername/repository.git
+    cd repository/backend
+    ```
+
+2. Create and activate a virtual environment:
+    ```sh
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+
+3. Install dependencies:
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+4. Set up the database:
+    ```sh
+    psql -U postgres -c "CREATE DATABASE yourdb;"
+    psql -U postgres -c "CREATE USER youruser WITH PASSWORD 'yourpassword';"
+    psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE yourdb TO youruser;"
+    ```
+
+5. Configure environment variables in a `.env` file:
+    ```env
+    DATABASE_URL=postgresql://youruser:yourpassword@localhost:5432/yourdb
+    ```
+
+6. Run the application:
+    ```sh
+    uvicorn main:app --host 0.0.0.0 --port 8000
+    ```
